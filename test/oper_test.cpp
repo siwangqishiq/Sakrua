@@ -2,6 +2,7 @@
 #include <limits.h>
 #include "../core/Oper.h"
 #include "gtest/gtest.h"
+#include <string>
 
 TEST(OperTest, build) {
 	Oper p(1,2);
