@@ -22,6 +22,9 @@ USER_DIR = core
 # unit test code
 TEST_DIR = test
 
+# window program code
+WIN_DIR = ui
+
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
 # the compiler doesn't generate warnings in Google Test headers.
@@ -44,7 +47,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 all : $(TESTS)
 
 clean :
-	rm -f $(TESTS) gtest.a gtest_main.a *.o
+	rm -f $(TESTS) gtest.a gtest_main.a *.o run_window
 
 # Builds gtest.a and gtest_main.a.
 
@@ -101,5 +104,9 @@ all_test: oper_test sample1_unittest
 	./oper_test 
 	./sample1_unittest
 
+compile_window :
+	$(CXX) -o run_window  $(WIN_DIR)/*.cpp `sdl2-config --cflags --libs`
 
+run_window : compile_window
+	./run_window
 
