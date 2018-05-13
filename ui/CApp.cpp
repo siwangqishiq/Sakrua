@@ -122,3 +122,11 @@ void CApp::OnRender(){
     mDraw->draw_line(100, 200);
 	SDL_RenderPresent(renderer);
 }
+
+SDL_Texture* CApp::loadImage(std::string filename){
+	SDL_Texture *tex = NULL;
+	
+	return NULL;
+}
+
+

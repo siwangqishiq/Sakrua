@@ -7,6 +7,8 @@
 #include <SDL2/SDL.h>
 #endif
 #include "SdlRenderDraw.cpp"
+//#include <SDL2/SDL_image.h>
+#include <string>
 
 // ============================================================================
 // [CApp]
@@ -51,4 +53,8 @@ private:
 	
 	// Called to render the app.
 	void 			OnRender();
+
+protected:
+	SDL_Texture* loadImage(std::string filename);
+
 };
