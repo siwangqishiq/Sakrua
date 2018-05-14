@@ -14,6 +14,10 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
+#
+# Comile Error:
+# 	https://discourse.libsdl.org/t/set-up-sdl-on-mac-osx-without-xcode/22066/5
+#
 GTEST_DIR = gtest
 
 # Where to find user code.
@@ -22,8 +26,8 @@ USER_DIR = core
 # unit test code
 TEST_DIR = test
 
-# sdl head dir
-SDL_DIR = /Library/Frameworks/SDL2.framework/Headers
+# window program code
+WIN_DIR = ui
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
@@ -47,7 +51,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 all : $(TESTS)
 
 clean :
-	rm -f $(TESTS) gtest.a gtest_main.a *.o
+	rm -f $(TESTS) gtest.a gtest_main.a *.o run_window
 
 # Builds gtest.a and gtest_main.a.
 
@@ -104,9 +108,14 @@ all_test: oper_test sample1_unittest
 	./oper_test 
 	./sample1_unittest
 
-
-sdl_show
-	g++ 
+#compile_window :
+#	$(CXX) -o run_window  $(WIN_DIR)/*.cpp `sdl2-config --cflags --libs`
 	
+run_window : compile_window
+	./run_window
+
+compile_window:
+	$(CXX) -o run_window $(WIN_DIR)/*.cpp -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework SDL2 -framework Cocoa
+#g++ *.cpp -o main -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework Cocoa
 
 
