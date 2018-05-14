@@ -22,6 +22,9 @@ USER_DIR = core
 # unit test code
 TEST_DIR = test
 
+# sdl head dir
+SDL_DIR = /Library/Frameworks/SDL2.framework/Headers
+
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
 # the compiler doesn't generate warnings in Google Test headers.
@@ -32,7 +35,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = sample1_unittest oper_test
+TESTS = sample1_unittest oper_test 
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -101,5 +104,9 @@ all_test: oper_test sample1_unittest
 	./oper_test 
 	./sample1_unittest
 
+
+sdl_show
+	g++ 
+	
 
 
