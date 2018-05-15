@@ -39,7 +39,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = sample1_unittest oper_test 
+TESTS = sample1_unittest oper_test Mat_test 
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -104,9 +104,28 @@ oper_test : Oper.o oper_test.o gtest_main.a
 run_oper_test : oper_test
 	./oper_test
 
-all_test: oper_test sample1_unittest
+#Mat_test
+Mat.o : $(USER_DIR)/Mat.cpp $(USER_DIR)/Mat.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Mat.cpp
+
+Mat_test.o : $(TEST_DIR)/Mat_test.cpp $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/Mat_test.cpp
+
+Mat_test : Mat.o Mat_test.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+Mat_test_run : Mat_test
+	./Mat_test
+
+#==========================ALL TEST========================================================
+
+all_test: oper_test sample1_unittest Mat_test
 	./oper_test 
 	./sample1_unittest
+	./Mat_test
+
+#==========================END ALL TEST ====================================================
+
 
 #compile_window :
 #	$(CXX) -o run_window  $(WIN_DIR)/*.cpp `sdl2-config --cflags --libs`
