@@ -14,8 +14,20 @@ Vec2::Vec2(const Vec2 &v){
 	this->y = v.y;
 }
 
+Vec2::Vec2(){
+	x = 0;
+	y = 0;
+}
+
 void Vec2::print(){
 	cout << "<" << x << " , " << y << ">" <<endl; 
 }
+
+Vec2& Vec2::operator=(Vec2 &rgh){
+	this->x = rgh.x;
+	this->y = rgh.y;
+	return *this;
+}
+
 
 

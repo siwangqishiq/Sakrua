@@ -7,11 +7,13 @@ class Vec2{
 	public:
 		Vec2(const Vec2 &v);
 		Vec2(real _x , real _y): x(_x),y(_y){	}
+		Vec2();
 		real x;
 		real y;
 		
-
 		void print();
+		Vec2& operator=(Vec2 &r);
+
 	protected:
 	private:
 };//end class Vec2
