@@ -144,7 +144,8 @@ compile_window :
 ifeq ($(OS), Linux)
 	$(CXX) -o run_window  $(WIN_DIR)/*.cpp `sdl2-config --cflags --libs`
 endif
-ifeq ($(OS) , mac)
+ifeq ($(OS) , Darwin)
 	$(CXX) -o run_window $(WIN_DIR)/*.cpp -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework SDL2 -framework Cocoa
 endif
+
 
