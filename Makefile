@@ -18,6 +18,8 @@
 # Comile Error:
 # 	https://discourse.libsdl.org/t/set-up-sdl-on-mac-osx-without-xcode/22066/5
 #
+OS := $(shell uname)
+
 GTEST_DIR = gtest
 
 # Where to find user code.
@@ -127,14 +129,22 @@ all_test: oper_test sample1_unittest Mat_test
 #==========================END ALL TEST ====================================================
 
 
+
+#================================== run ui window ===========================================
+#$(CXX) -o run_window $(WIN_DIR)/*.cpp -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework SDL2 -framework Cocoa
+#g++ *.cpp -o main -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework Cocoa
+
 #compile_window :
 #	$(CXX) -o run_window  $(WIN_DIR)/*.cpp `sdl2-config --cflags --libs`
 	
 run_window : compile_window
 	./run_window
 
-compile_window:
+compile_window :
+ifeq ($(OS), Linux)
+	$(CXX) -o run_window  $(WIN_DIR)/*.cpp `sdl2-config --cflags --libs`
+endif
+ifeq ($(OS) , mac)
 	$(CXX) -o run_window $(WIN_DIR)/*.cpp -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework SDL2 -framework Cocoa
-#g++ *.cpp -o main -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework Cocoa
-
+endif
 
