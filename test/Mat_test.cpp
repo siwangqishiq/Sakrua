@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 #include <limits.h>
 
+using namespace Sakrua;
 
 TEST(Vec2_Test, build){
 	Vec2 v(1 , 2);

@@ -142,10 +142,10 @@ run_window : compile_window
 
 compile_window :
 ifeq ($(OS), Linux)
-	$(CXX) -o run_window  $(WIN_DIR)/*.cpp `sdl2-config --cflags --libs`
+	$(CXX) -o run_window  $(WIN_DIR)/*.cpp -I$(USER_DIR) `sdl2-config --cflags --libs`
 endif
 ifeq ($(OS) , Darwin)
-	$(CXX) -o run_window $(WIN_DIR)/*.cpp -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework SDL2 -framework Cocoa
+	$(CXX) -o run_window $(WIN_DIR)/*.cpp $(USER_DIR)/*.cpp -I$(USER_DIR) -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2 -framework SDL2 -framework Cocoa
 endif
 
 

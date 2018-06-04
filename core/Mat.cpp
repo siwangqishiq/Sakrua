@@ -4,6 +4,7 @@
 #include "Mat.h"
 
 using namespace std;
+using namespace Sakrua;
 
 //Vec2::Vec2(real _x , real _y):x(_x) , y(_y){
 //

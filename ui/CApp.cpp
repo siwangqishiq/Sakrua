@@ -4,7 +4,7 @@
 #include "CApp.h"
 #include <iostream>
 //#include "SdlRenderDraw.cpp"
-
+#include "Mat.h"
 using namespace std;
 
 // ============================================================================
@@ -27,6 +27,10 @@ CApp::~CApp()
 
 int CApp::OnInit()
 {
+	Sakrua::Vec2 v;
+	
+	v.print();
+
     cout << "init panyi" << endl;
 	// Initialize the SDL library.
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {

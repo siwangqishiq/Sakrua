@@ -9,6 +9,7 @@
 #include "SdlRenderDraw.cpp"
 //#include <SDL2/SDL_image.h>
 #include <string>
+#include <memory>
 
 // ============================================================================
 // [CApp]
@@ -37,6 +38,7 @@ private:
 	SDL_Window*		window;
 	SDL_Renderer*	renderer;
     
+
     SdlRenderDraw *mDraw;
 
 	// Initialize application
