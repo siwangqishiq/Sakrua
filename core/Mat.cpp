@@ -30,5 +30,20 @@ Vec2& Vec2::operator=(Vec2 &rgh){
 	return *this;
 }
 
+Vec2& Vec2::operator+(Vec2 &r){
+	this->x += r.x;
+	this->y += r.y;
+	return *this;
+}
+
+Vec2& Vec2::operator-(Vec2 &r){
+	this->x -= r.x;
+	this->y -= r.y;
+	return *this;
+}
+
+real Vec2::operator*(Vec2 &r){
+	return this->x * r.x + this->y * r.y;
+}
 
 

@@ -15,6 +15,10 @@ namespace Sakrua{
 			void print();
 			Vec2& operator=(Vec2 &r);
 
+			Vec2& operator+(Vec2 &r);
+			Vec2& operator-(Vec2 &r);
+
+			real operator*(Vec2 &r);
 		protected:
 		private:
 	};//end class Vec2
